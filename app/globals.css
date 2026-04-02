@@ -1,8 +1,12 @@
 @import "tailwindcss";
+@import "leaflet/dist/leaflet.css";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #07050d;
+  --foreground: #f3f4f6;
+  --panel: rgba(18, 10, 30, 0.55);
+  --panelBorder: rgba(168, 85, 247, 0.25);
+  --shadow: 0 20px 70px rgba(0, 0, 0, 0.45);
 }
 
 @theme inline {
@@ -12,15 +16,89 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html.light {
+  --background: #f8fafc;
+  --foreground: #0b0b12;
+  --panel: rgba(255, 255, 255, 0.7);
+  --panelBorder: rgba(88, 28, 135, 0.18);
+  --shadow: 0 20px 70px rgba(2, 6, 23, 0.18);
+}
+
+html.dark {
+  --background: #07050d;
+  --foreground: #f3f4f6;
+  --panel: rgba(18, 10, 30, 0.55);
+  --panelBorder: rgba(168, 85, 247, 0.25);
+  --shadow: 0 20px 70px rgba(0, 0, 0, 0.45);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Subtle SaaS-like gradient backdrop */
+.app-gradient {
+  background:
+    radial-gradient(900px 600px at 18% 12%, rgba(168, 85, 247, 0.26), transparent 60%),
+    radial-gradient(800px 500px at 82% 18%, rgba(99, 102, 241, 0.20), transparent 55%),
+    radial-gradient(900px 700px at 50% 92%, rgba(236, 72, 153, 0.10), transparent 60%),
+    linear-gradient(160deg, rgba(0, 0, 0, 0.8), rgba(10, 3, 24, 0.92));
+}
+
+.glass-panel {
+  background: var(--panel);
+  border: 1px solid var(--panelBorder);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+/* Leaflet tweaks */
+.leaflet-container {
+  background: transparent;
+  outline: none;
+}
+
+/* Custom popup styling (not Leaflet default) */
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+  background: rgba(18, 10, 30, 0.72);
+  color: #f3f4f6;
+  border: 1px solid rgba(168, 85, 247, 0.22);
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(12px);
+}
+
+html.light .leaflet-popup-content-wrapper,
+html.light .leaflet-popup-tip {
+  background: rgba(255, 255, 255, 0.9);
+  color: #0b0b12;
+  border: 1px solid rgba(88, 28, 135, 0.18);
+  box-shadow: 0 18px 60px rgba(2, 6, 23, 0.18);
+}
+
+.leaflet-popup-content {
+  margin: 10px 12px;
+}
+
+.leaflet-popup-close-button {
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+html.light .leaflet-popup-close-button {
+  color: rgba(15, 23, 42, 0.85) !important;
+}
+
+/* Make controls fit the dark UI */
+.leaflet-control-zoom a {
+  background: rgba(18, 10, 30, 0.72) !important;
+  color: #f3f4f6 !important;
+  border: 1px solid rgba(168, 85, 247, 0.18) !important;
+  backdrop-filter: blur(10px);
+}
+html.light .leaflet-control-zoom a {
+  background: rgba(255, 255, 255, 0.9) !important;
+  color: #0b0b12 !important;
+  border: 1px solid rgba(88, 28, 135, 0.14) !important;
 }
