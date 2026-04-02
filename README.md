@@ -1,36 +1,150 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🗺️ Next.js Map App (React Leaflet)
 
-## Getting Started
+A modern, interactive map application built with **Next.js** and **React Leaflet**. Users can search for any location and view it on a map with a marker.
 
-First, run the development server:
+---
+
+## 🚀 Features
+
+* 🔍 Search any location
+* 📍 Display location on map with marker
+* 🌐 Uses OpenStreetMap (no API key required)
+* ⚡ Fast and responsive UI
+* 📱 Mobile-friendly design
+* 🔄 Dynamic map updates
+* 📌 Default location (Bangalore)
+
+---
+
+## 🛠️ Tech Stack
+
+* **Next.js (App Router)**
+* **React**
+* **React Leaflet**
+* **Leaflet**
+* **Tailwind CSS**
+* **OpenStreetMap API (Nominatim)**
+
+---
+
+## 📦 Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/your-username/my-map.git
+cd my-map
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+---
+
+## ▶️ Run the Project
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open in browser:
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+```
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 📁 Project Structure
 
-To learn more about Next.js, take a look at the following resources:
+```
+my-map/
+│── app/
+│   └── page.js        # Main page
+│
+│── components/
+│   └── Map.jsx        # Map component
+│
+│── public/
+│── styles/
+│── package.json
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## ⚙️ How It Works
 
-## Deploy on Vercel
+1. User enters a location in the search bar
+2. App sends request to OpenStreetMap (Nominatim API)
+3. API returns latitude & longitude
+4. Map updates to the searched location
+5. Marker is placed on the map
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## ✨ Future Improvements
+
+* 🔎 Autocomplete search suggestions
+* 📍 Multiple markers support
+* 🧭 Route & directions feature
+* 🌙 Dark mode map
+* 💾 Save favorite locations
+* 📡 Live location tracking
+
+---
+
+## 🐛 Common Issues
+
+### Map not showing
+
+* Ensure Leaflet CSS is imported:
+
+```css
+@import "leaflet/dist/leaflet.css";
+```
+
+### Hydration / SSR error
+
+* Use dynamic import with `ssr: false`
+
+### Marker not appearing
+
+* Ensure coordinates format is:
+
+```js
+[latitude, longitude]
+```
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome!
+
+1. Fork the repo
+2. Create a new branch
+3. Make changes
+4. Submit a pull request
+
+---
+
+## 📄 License
+
+This project is open source and available under the **MIT License**.
+
+---
+
+## 🙌 Acknowledgements
+
+* OpenStreetMap
+* Leaflet
+* React Leaflet
+
+---
+
+## ⭐ Support
+
+If you like this project, give it a ⭐ on GitHub!
